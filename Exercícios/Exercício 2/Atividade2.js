@@ -114,7 +114,7 @@ calculos(15,5);
 
     testeObjetos(pessoa);
 
-//Exercício 
+//Exercício 9 
 
 let livro = { titulo: "O Senhor dos Anéis", autor: "J.R. Tolkien", ano: 1954 };
 let { titulo, autor } = livro;
