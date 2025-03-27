@@ -15,5 +15,5 @@ export default function PrimeiroComponente() {
       Meu primeiro componente
       </Text>
     </View>  
-  );
+  )
 }

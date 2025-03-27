@@ -42,7 +42,7 @@ export default function App() {
         </Text>
 
         <StatusBar style="auto" />
-      
+
         <Image
           style={styles.image}
           source={{
@@ -108,8 +108,5 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 10,
     boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
-
   },
 });
-
-
