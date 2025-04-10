@@ -40,7 +40,7 @@ export default function App() {
   
     <StatusBar style="auto" />
 
-    <View >
+    <View style >
       <Text style={{fontSize: 30, margin: 10}}>Estados e Municípios</Text>
 
      <FlatList
