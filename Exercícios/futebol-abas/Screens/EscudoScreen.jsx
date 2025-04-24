@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#e63946',
     textAlign: 'center',
-    marginBottom: 10,
+    marginBottom: 10
   },
   descricao: {
     fontSize: 16,
