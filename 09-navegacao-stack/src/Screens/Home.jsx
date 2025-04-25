@@ -26,4 +26,5 @@ export default function Home({navigation, route}) {
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+})
