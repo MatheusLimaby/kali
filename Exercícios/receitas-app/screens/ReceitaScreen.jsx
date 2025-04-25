@@ -18,7 +18,7 @@ export default function ReceitaScreen({ navigation, route }) {
         <Card.Content style={{ margin: 20, borderRadius: 10, padding: 20 }}>
           <Text>Nome: {route.params.item.nome}</Text>
           <Text>tempoPreparo: {route.params.item.tempoPreparo}</Text>
-          <Text> porcoes: {route.params.item.porcoes}</Text>
+          <Text>porcoes: {route.params.item.porcoes}</Text>
 
           <Text style={{ marginTop: 10, fontWeight: "bold" }}>
             Ingredientes:
@@ -33,9 +33,9 @@ export default function ReceitaScreen({ navigation, route }) {
           </Text>
           <FlatList
             data={route.params.item.modoPreparo}
-            renderItem={({ item, index }) => (
+            renderItem={({ item}) => (
               <Text>
-                {index + 1}. {item}
+                 {item}
               </Text>
             )}
           />
