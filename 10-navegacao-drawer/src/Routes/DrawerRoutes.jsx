@@ -16,11 +16,9 @@ export default function DrawerRoutes() {
   return (
 
     <Drawer.Navigator>
-        <Drawer.Screen name='HomeScreen'
+        <Drawer.Screen name=''
          component={HomeScreen}
-          options={{
-            title: "Início",
-             drawerIcon: ({color, size}) => <Ionicons name='home' color={color} size={size}></Ionicons>}}
+        
              />
 
         <Drawer.Screen name='ProfileScreen'

@@ -8,7 +8,11 @@ export default function NumeroAleatorio() {
     const [numero, setNumero] = useState(0)
     const [lista, setLista] = useState([])
 
-
+    function GerarNumeroAleatorio() {
+        const numeroAleatorio = Math.floor(Math.random() * 100)
+        setNumero(numeroAleatorio)
+        setLista([...lista, numeroAleatorio])
+    }
 
   return (
     <View>
@@ -21,19 +25,15 @@ export default function NumeroAleatorio() {
                 <Button onPress={() => setNumero(Math.floor(Math.random() * 100))}>Gerar</Button>
             </Card.Actions>
         </Card>
-
         <Card>
-        <Card.Content>
-            <Card.Title title="Lista de Números" />
-            {lista.map((item, index) => (
-                <Text key={index}>{item}</Text>
-            ))}
-        </Card.Content>
-        <Card.Actions>
-            <Button onPress={() => setLista([...lista, numero])}>Adicionar</Button>
-            <Button onPress={() => setLista([])}>Limpar</Button>
-        </Card.Actions>
+            <Card.Content>
+                <Card.Title title="Lista de Números" />
+                {lista.map((item, index) => (
+                    <Text key={index}>Número: {item}</Text>
+                ))}
+            </Card.Content>
         </Card>
+
     </View>
   )
 }
