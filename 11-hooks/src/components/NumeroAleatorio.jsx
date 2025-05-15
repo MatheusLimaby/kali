@@ -6,6 +6,8 @@ import { useState } from 'react'
 export default function NumeroAleatorio() {
     
     const [numero, setNumero] = useState(0)
+    const [lista, setLista] = useState([])
+
 
 
   return (
@@ -18,6 +20,19 @@ export default function NumeroAleatorio() {
             <Card.Actions>
                 <Button onPress={() => setNumero(Math.floor(Math.random() * 100))}>Gerar</Button>
             </Card.Actions>
+        </Card>
+
+        <Card>
+        <Card.Content>
+            <Card.Title title="Lista de Números" />
+            {lista.map((item, index) => (
+                <Text key={index}>{item}</Text>
+            ))}
+        </Card.Content>
+        <Card.Actions>
+            <Button onPress={() => setLista([...lista, numero])}>Adicionar</Button>
+            <Button onPress={() => setLista([])}>Limpar</Button>
+        </Card.Actions>
         </Card>
     </View>
   )
