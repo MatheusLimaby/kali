@@ -73,6 +73,7 @@ export default function JogoDoBichoScreen() {
     <View style={styles.container}>
       <Card>
         <Card.Content>
+
           <Card.Title title="Gerador de Animais" />
           <Text>Animal Gerado: {animalGerado.nome}</Text>
         </Card.Content>
