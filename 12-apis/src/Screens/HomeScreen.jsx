@@ -4,11 +4,11 @@ import { Card, Text, Avatar, IconButton } from 'react-native-paper';
 import { FlatList } from 'react-native';
 import axios from 'axios';
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation, route}) {
   const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
-    axios.get('https://dummyjson.com/users?delay=2000')
+    axios.get('https://dummyjson.com/users?')
       .then((response) => {
         setUsuarios(response.data.users);
       })
@@ -36,7 +36,10 @@ export default function HomeScreen() {
                 <IconButton
                   {...props}
                   icon="chevron-right"
-                  onPress={() => console.log('Menu pressed')}
+                  onPress={() => 
+                    navigation.navigate('Usuario',item.id)
+                  } 
+                  
                 />
               )}
             />

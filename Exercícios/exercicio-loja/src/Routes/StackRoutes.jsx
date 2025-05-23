@@ -1,7 +1,9 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
 import HomeScreen from '../Screens/HomeScreen'
-import UsuarioScreen from '../Screens/UsuarioScren'
+import ListaProdutosScreen from '../Screens/ListaProdutosScreen'
+import ProdutoScreen from '../Screens/ProdutoScreen'
+
 
 
 const Stack = createStackNavigator()
@@ -13,13 +15,18 @@ export default function StackRoutes({}) {
         <Stack.Screen name="Home"
          component={HomeScreen}
           options={{
-            title:"Lista de Usuários",
+            title:"Tela_Inicial",
             headerTitleAlign: "center"} }/>
 
-        <Stack.Screen name="Usuario"
-         component={UsuarioScreen}
+        <Stack.Screen name="ListaProdutos"
+         component={ListaProdutosScreen}
           options={{
-            title:"Usuário",
+            title:"Lista de Produtos",
+            headerTitleAlign: "center"}}/>
+        <Stack.Screen name="Produtos"
+         component={ProdutoScreen}
+          options={{
+            title:"Produto",
             headerTitleAlign: "center"}}/>
       </Stack.Navigator>
 
