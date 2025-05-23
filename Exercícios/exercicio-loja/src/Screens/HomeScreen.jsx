@@ -32,7 +32,7 @@ export default function HomeScreen({navigation, route}) {
             <Card.Actions>
                 <IconButton
                     icon="chevron-right"
-                    onPress={() => navigation.navigate('ListaProdutos', item)} // Passando o item como parâmetro para a próxima tela
+                    onPress={() => navigation.navigate('ListaProdutos', item)} 
                 />
             </Card.Actions>
           </Card>
