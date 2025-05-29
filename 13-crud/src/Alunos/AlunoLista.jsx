@@ -1,25 +1,23 @@
 import { StyleSheet, View } from 'react-native'
 import { Button, Text} from 'react-native-paper'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FlatList } from 'react-native-gesture-handler';
 import { Card } from 'react-native-paper';
 import { useState } from 'react';
+import AlunoService from '../Service/AlunoService';
+
 export default function AlunoLista({navigation, route}) {
   
-  const [alunos, setAlunos] = useState([
-    {id: '1', nome: 'João',
-     cpf: "111.222.333-98",
-     email: "Aluno@gmail.com",
-     telefone: "(61)99999-9999",
-     nascimento: "01/01/2000"},
-    {id: '2',
-     nome: 'Maria',
-     cpf: "222.444.555-12",
-     email: "Aluno2@gmail.com",
-     telefone: "(61)91999-9999",
-     nascimento: "01/02/2000" },
+  const [alunos, setAlunos] = useState([]);
 
-  ]);
+  useEffect(() => {
+    BuscarAlunos();
+  }, []);
+
+  async function BuscarAlunos(){
+    const ListarAlunos = await AlunoService.listar();
+    setAlunos(ListarAlunos);
+  }
   return (
     <View>
         <Button style={{margin: 20}}
@@ -40,7 +38,7 @@ export default function AlunoLista({navigation, route}) {
               <Text>CPF: {item.cpf}</Text>
             </Card.Content>
             <Card.Actions>
-              <Button icon={'pencil'}>Editar </Button>        
+              <Button icon={'pencil'} onPress={() => navigation.navigate('Cadastro de Alunos', item)}>Editar </Button>        
               <Button icon={"delete"}> Excluir</Button>    
             </Card.Actions>
           </Card>

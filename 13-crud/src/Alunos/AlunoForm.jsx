@@ -1,14 +1,17 @@
-import { StyleSheet, View } from 'react-native';
+import { Alert, StyleSheet, View } from 'react-native';
 import React, { useState } from 'react';
 import { Button, TextInput, Text } from 'react-native-paper';
 import { TextInputMask } from 'react-native-masked-text';
+import AlunoService from '../Service/AlunoService';
 
 export default function AlunoForm({ navigation, route }) {
-  const [nome, setNome] = useState('');
-  const [cpf, setCpf] = useState('');
-  const [email, setEmail] = useState('');
-  const [telefone, setTelefone] = useState('');
-  const [nascimento, setNascimento] = useState('');
+  const AlunoAntigo = route.params || {}
+
+  const [nome, setNome] = useState(AlunoAntigo.nome || '');
+  const [cpf, setCpf] = useState(AlunoAntigo.cpf || '');
+  const [email, setEmail] = useState(AlunoAntigo.email || '');
+  const [telefone, setTelefone] = useState(AlunoAntigo.telefone || '');
+  const [nascimento, setNascimento] = useState(AlunoAntigo.nascimento || '');
 
   function Salvar() {
     const aluno = {
@@ -23,14 +26,22 @@ export default function AlunoForm({ navigation, route }) {
       alert('Todos os campos são obrigatórios!');
       return;
     }
+
+    if (AlunoAntigo.id) {
+      aluno.id = AlunoAntigo.id
+      AlunoService.atualizar(aluno);
+      Alert.alert('Aluno atualizado com sucesso!');
+    }
     else{
-    alert(JSON.stringify(aluno));
+    AlunoService.salvar(aluno)
+    alert('Aluno salvo com sucesso!');
   }
   }
 
   return (
     <View style={styles.container}>
       <Text variant="titleLarge">Informe os Dados:</Text>
+      <Text variant="titleLarge" style={{ marginTop: 10 }} >Aluno ID: {AlunoAntigo.id || "NOVO" }</Text>
       <TextInput
         label="Nome"
         mode="outlined"
