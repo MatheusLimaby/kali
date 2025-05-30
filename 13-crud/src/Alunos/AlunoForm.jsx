@@ -13,7 +13,7 @@ export default function AlunoForm({ navigation, route }) {
   const [telefone, setTelefone] = useState(AlunoAntigo.telefone || '');
   const [nascimento, setNascimento] = useState(AlunoAntigo.nascimento || '');
 
-  function Salvar() {
+ async function Salvar() {
     const aluno = {
       nome: nome,
       cpf: cpf,
@@ -29,11 +29,21 @@ export default function AlunoForm({ navigation, route }) {
 
     if (AlunoAntigo.id) {
       aluno.id = AlunoAntigo.id
-      AlunoService.atualizar(aluno);
+      await AlunoService.atualizar(aluno);
       Alert.alert('Aluno atualizado com sucesso!');
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Lista de Alunos' }],
+      });
+      
+      
     }
     else{
-    AlunoService.salvar(aluno)
+    await AlunoService.salvar(aluno)
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Lista de Alunos' }],
+    });
     alert('Aluno salvo com sucesso!');
   }
   }

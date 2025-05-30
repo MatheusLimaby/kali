@@ -18,6 +18,11 @@ export default function AlunoLista({navigation, route}) {
     const ListarAlunos = await AlunoService.listar();
     setAlunos(ListarAlunos);
   }
+  async function ExcluirAluno(id) {
+    await AlunoService.remover(id);
+    BuscarAlunos();
+    alert('Aluno excluído com sucesso!');
+  }
   return (
     <View>
         <Button style={{margin: 20}}
@@ -39,7 +44,7 @@ export default function AlunoLista({navigation, route}) {
             </Card.Content>
             <Card.Actions>
               <Button icon={'pencil'} onPress={() => navigation.navigate('Cadastro de Alunos', item)}>Editar </Button>        
-              <Button icon={"delete"}> Excluir</Button>    
+              <Button icon={"delete"} onPress={() => ExcluirAluno(item.id)}> Excluir</Button>    
             </Card.Actions>
           </Card>
         }
